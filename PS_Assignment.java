@@ -1,6 +1,6 @@
 import java.util.*;
 public class PS_Assignment {
-		    private static void Busroute(int[][] graph,int start,int destination)
+		    private static void busRoute(int[][] graph,int start,int destination)
 		    {
 		        int cities = graph[0].length;
 		        int[] value = new int[cities];
@@ -13,7 +13,7 @@ public class PS_Assignment {
 		        value[start] = 0;
 		        int[] parents = new int[cities];
 		        parents[start] = -1;
-		        for (int i = 1; i < cities; i++)
+		        for (int row = 1; row < cities; row++)
                 {
 		            int nearestVertex = -1;
 		            int shortestDistance = Integer.MAX_VALUE;
@@ -70,6 +70,6 @@ public class PS_Assignment {
 		                                    { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
 		                                    { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
 		                                    { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
-		        Busroute(graph,start,destination);
+		        busRoute(graph,start,destination);
 		    }
 		}
