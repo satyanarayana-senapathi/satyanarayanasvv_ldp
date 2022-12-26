@@ -1,6 +1,6 @@
 import java.util.*;
 public class PS_Assignment {
-		    private static void busRoute(int[][] graph,int start,int destination)
+		    private static void findBusRoute(int[][] graph,int start,int destination)
 		    {
 		        int cities = graph[0].length;
 		        int[] value = new int[cities];
@@ -70,6 +70,6 @@ public class PS_Assignment {
 		                                    { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
 		                                    { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
 		                                    { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
-		        busRoute(graph,start,destination);
+		        findBusRoute(graph,start,destination);
 		    }
 		}
