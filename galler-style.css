@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgba(186,212,255,0.5);
+    min-height: 100vh;
+
+}
+img{
+    width: 200px;
+    height: 200px;
+    transition: 1.5s all;
+    object-position: center;
+    object-fit: center;
+    display: inline-block;
+
+}
+img:hover{
+    height: 250px;
+    width: 500px;
+}
+#main{
+    position: absolute;
+    justify-content: auto;
+    align-items: center;
+    margin-top: 10px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+#main >img{
+    margin:10px;
+
+}
