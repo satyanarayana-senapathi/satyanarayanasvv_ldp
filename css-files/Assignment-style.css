@@ -43,7 +43,7 @@ a.active,a:hover{
 
 }
 section{
-    background: url(./circ.jpg) no-repeat;
+    background: url(../image/circ.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
     
@@ -82,12 +82,12 @@ img{
 }
 .color{
     background-color: antiquewhite;
-    background: url(./track.jpg) no-repeat;
+    background: url(../image/track.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
 }
 .colo{
-    background: url(./contactimg.jpg) no-repeat;
+    background: url(../image/contactimg.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
 
