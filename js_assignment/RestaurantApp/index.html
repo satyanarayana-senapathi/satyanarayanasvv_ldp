@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Zemoso Restaurant</title>
+</head>
+
+<body>
+    <main>
+        <section>
+
+            <div class="container">
+                <div class="left-column">
+                    <h2 class="heading">TABLES</h2>
+                    <div class="search-container">
+                        <input class="search" id="table-search" type="text" placeholder="search table">
+                        <img src="./assests/search.svg" alt="search-icon" class="search-icon" id="tab-search">
+                    </div>
+
+                    <div class="scroll-y table-cards">
+                    </div>
+
+                </div>
+                <div class="right-column">
+                    <h2 class="heading">MENU</h2>
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <input class="search" id="menu-search" type="text" placeholder="search menu......by cousre,by item ">
+                            <img src="./assests/search.svg" alt="search-icon" class="search-icon">
+
+                        </div>
+                        <button class="create-menu-item">add</button>
+                    </div>
+                    <div class="scroll-y menu-cards">
+                    </div>
+                </div>
+        </section>
+        <section>
+            <dialog class="add-menu-dialog">
+            </dialog>
+
+            <dialog class="show-table-data k">
+
+
+                <button class="cancel">cancel</button>
+                <button class="genrate-bill">
+                    <span>
+                        generate bill
+
+                    </span>
+                </button>
+
+            </dialog>
+
+            <dialog class="show-bill">
+
+            </dialog>
+        </section>
+    </main>
+</body>
+
+</html>
