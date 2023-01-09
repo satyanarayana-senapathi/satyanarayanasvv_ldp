@@ -272,11 +272,8 @@ addEventListener("drop", ".drop", (e) => {
     const key = e.dataTransfer.getData("text/plain");
     const tableKey = e.target.getAttribute("attr-key");
     const menuObj = menuCardList[key];
-    if (
-        tableCardList[tableKey].tableItems.some(
-            (item) => item.name == menuObj.name
-        )=== false
-    ) {
+    if (!tableCardList[tableKey].tableItems.some((item) => item.name == menuObj.name))
+    {
         tableCardList[tableKey].tableItems.push({
             name: menuObj.name,
             cost: menuObj.cost,
