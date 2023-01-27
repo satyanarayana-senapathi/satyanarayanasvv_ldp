@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'GraphikRegular';
+    src: url(../../fonts/GraphikRegular.otf);
+}
+.card{
+    margin-top: 20rem;
+    margin-left: 25rem;
+    height: 115px;
+    width: 710px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    border: 1px solid #E8E8F7;
+    border-radius: 4px;
+}
+.in-card{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    gap: 10px;
+    width: 700px;
+    left: 24px;
+    top: 70px;
+    border-radius: 4px;
+    padding: 16px;
+    border: 1px solid #E8E8F7;
+}
+.left{
+    margin: 0px;
+}
+.right{
+    margin-right: 0px;
+    margin-top: 0px;
+}
+.top{
+    margin-top: 0px;
+    margin-left: 20%;
+}
+.bottom{
+    margin-top: 80px;
+    margin-left: 20%;
+}
+.Small{
+    width: 650px;
+    height: 90px;
+}
+
+  

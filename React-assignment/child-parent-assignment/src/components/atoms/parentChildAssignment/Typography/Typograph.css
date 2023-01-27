@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'GraphikRegular';
+    src: url(../../../../fonts/GraphikRegular.otf);
+}
+.heading{
+    padding-left: 6px;
+    font-size: 18px!important;
+    font-weight: bold!important;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #343446; 
+    font-family: 'GraphikRegular' !important;
+    font-style: normal;
+
+}
+.bitcn{
+    padding-top: 10px!important;
+    padding-left: 1px!important;
+    font-size: 13px!important;
+    font-weight: bold!important;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    font-family: 'GraphikRegular' !important;
+    font-style: normal;
+    color: #343446;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.rightBill{
+    padding-left: 26rem;
+    padding-top: 8px!important;
+    left: 498px;
+    top: 18px;
+    border-radius: nullpx;
+    font-size: 18px!important;
+    font-weight: bold!important;
+    line-height: 28px;
+    letter-spacing: 0px;
+    font-family: 'GraphikRegular' !important;
+    font-weight: 500;
+    color: #343446;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
