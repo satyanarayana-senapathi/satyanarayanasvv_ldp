@@ -1,9 +1,11 @@
-function addEventListener(type, selector, callback) {addEventListener
+function addEventListener(type, selector, callback) {
+    addEventListener
     document.addEventListener(type, (e) => {
         if (e.target.matches(selector)) callback(e);
     });
 }
 function addMenuCardList() {
+    localStorage.setItem("menuCardList", JSON.stringify(menuCardList));
     localStorage.setItem("menuCardList", JSON.stringify(menuCardList));
 }
 function getMenuCardList() {
@@ -11,6 +13,7 @@ function getMenuCardList() {
 }
 
 // Adding table items
+const tableCardList = [
 const tableCardList = [
     {
         id: 0,
@@ -40,29 +43,30 @@ const tableCardList = [
 
 // adding menu-items
 let menuCardList = [
+let menuCardList = [
     {
         id: 0,
         name: "pasta",
         cost: 100,
-        type:"entree",
+        type: "entree",
     },
     {
         id: 1,
         name: "pizza",
         cost: 30,
-        type:"entree",
+        type: "entree",
     },
     {
         id: 2,
         name: "butter chicken",
         cost: 50,
-        type:"main course",
+        type: "main course",
     },
     {
         id: 3,
         name: "mutton biryani",
         cost: 100,
-        type:"main course",
+        type: "main course",
     },
     {
         id: 4,
@@ -80,13 +84,13 @@ let menuCardList = [
         id: 6,
         name: "fried rice",
         cost: 100,
-        type:"appetizers",
+        type: "appetizers",
     },
     {
         id: 7,
         name: "noodles",
         cost: 30,
-        type:"appetizers",
+        type: "appetizers",
     },
     {
         id: 8,
@@ -110,7 +114,7 @@ let menuCardList = [
         id: 11,
         name: "drink",
         cost: 50,
-        type:"desserts",
+        type: "desserts",
     },
 ];
 
@@ -135,17 +139,17 @@ tableCardList.forEach((tableCard) => {
 
 //display menu
 menuCardList.forEach((menuCard) => {
+menuCardList.forEach((menuCard) => {
     const menuCardHtml = `
     <div class="menu-card" draggable="true" attr-key=${menuCard.id}>
-                            <button class="delete delete-btn" attr-key=${menuCard.id}>
-                            <img src="./assests/delete.svg" alt="edit-button" class="delete-img delete-btn" attr-key=${menuCard.id}>
-                            <span class="show-delete" attr-key=${menuCard.id}>delete</span>
-                            </button>
-                            <h2 attr-key=${menuCard.id}>${menuCard.name}</h2>
-                            <p attr-key=${menuCard.id}>Item cost: <span id="total-cost" attr-key=${menuCard.id}>${menuCard.cost}</span></p>
-                            <p attr-key=${menuCard.id}>Item type: <span id="item-type" attr-key=${menuCard.id}>${menuCard.type}</span></p>
-                            
-                        </div>
+        <button class="delete delete-btn" attr-key=${menuCard.id}>
+        <img src="./assests/delete.svg" alt="edit-button" class="delete-img delete-btn" attr-key=${menuCard.id}>
+        <span class="show-delete" attr-key=${menuCard.id}>delete</span>
+        </button>
+        <h2 attr-key=${menuCard.id}>${menuCard.name}</h2>
+        <p attr-key=${menuCard.id}>Item cost: <span id="total-cost" attr-key=${menuCard.id}>${menuCard.cost}</span></p>
+        <p attr-key=${menuCard.id}>Item type: <span id="item-type" attr-key=${menuCard.id}>${menuCard.type}</span></p>
+    </div>
     `;
     menuCards.insertAdjacentHTML("beforeend", menuCardHtml);
 });
@@ -171,6 +175,7 @@ menuSearch.addEventListener("keyup", (e) => {
     const menuCards = document.querySelectorAll(".menu-card");
     menuCards.forEach((card) => {
         const cardName = card.children[1].innerText;
+        const typeName = card.children[3].children[0].innerHTML;
         const typeName=card.children[3].children[0].innerHTML;
         if (cardName.toLowerCase().includes(e.target.value.toLowerCase()) || typeName.toLowerCase().includes(e.target.value.toLowerCase())) {
             card.style.display = "block";
@@ -210,7 +215,7 @@ addmenu.addEventListener("click", () => {
         <button class="cancel">Cancel</button>
     </form>
     `;
-// pushing items to menu list
+    // pushing items to menu list
     const addMenuItem = dialog.querySelector(".add-menu-item");
     const cancelBtn = dialog.querySelector(".cancel");
 
@@ -222,17 +227,26 @@ addmenu.addEventListener("click", () => {
 
         const newMenuItem = {
             id: menuCardList.length,
+            id: menuCardList.length,
             name: itemName,
             cost: parseInt(itemPrice),
             type: itemType,
         };
+        menuCardList.push(newMenuItem);
         menuCardList.push(newMenuItem);
         const menuCardHtml = `
         <div class="menu-card" draggable="true" attr-key=${menuCardList.length - 1}>
             <button class="delete" attr-key=${menuCardList.length - 1}>
             <img src="./assests/delete.svg" alt="edit-button" class="delete-img delete-btn" attr-key=${menuCardList.length - 1}>
             <span class="show-delete" attr-key=${menuCardList.length - 1}>delete</span>
+        <div class="menu-card" draggable="true" attr-key=${menuCardList.length - 1}>
+            <button class="delete" attr-key=${menuCardList.length - 1}>
+            <img src="./assests/delete.svg" alt="edit-button" class="delete-img delete-btn" attr-key=${menuCardList.length - 1}>
+            <span class="show-delete" attr-key=${menuCardList.length - 1}>delete</span>
             </button>
+            <h2 attr-key=${menuCardList.length - 1}>${newMenuItem.name}</h2>
+            <p attr-key=${menuCardList.length - 1}>Total cost: <span id="total-cost" attr-key=${menuCardList.length - 1}>${newMenuItem.cost}</span></p>
+            <p attr-key=${menuCardList.length - 1}>Item type: <span id="item-type" attr-key=${menuCardList.length - 1}>${newMenuItem.type}</span></p>
             <h2 attr-key=${menuCardList.length - 1}>${newMenuItem.name}</h2>
             <p attr-key=${menuCardList.length - 1}>Total cost: <span id="total-cost" attr-key=${menuCardList.length - 1}>${newMenuItem.cost}</span></p>
             <p attr-key=${menuCardList.length - 1}>Item type: <span id="item-type" attr-key=${menuCardList.length - 1}>${newMenuItem.type}</span></p>
@@ -272,6 +286,14 @@ addEventListener("drop", ".drop", (e) => {
     const key = e.dataTransfer.getData("text/plain");
     const tableKey = e.target.getAttribute("attr-key");
     const menuObj = menuCardList[key];
+    if (
+        tableCardList[tableKey].tableItems.some(
+            (item) => item.name == menuObj.name
+        ) === false
+    ) {
+        tableCardList[tableKey].tableItems.push({
+    const tableKey = e.target.getAttribute("attr-key");
+    const menuObj = menuCardList[key];
     if (!tableCardList[tableKey].tableItems.some((item) => item.name == menuObj.name))
     {
         tableCardList[tableKey].tableItems.push({
@@ -281,6 +303,7 @@ addEventListener("drop", ".drop", (e) => {
         });
     } else {
         tableCardList[tableKey].tableItems.forEach((item) => {
+        tableCardList[tableKey].tableItems.forEach((item) => {
             if (item.name == menuObj.name) {
                 item.cost += menuObj.cost;
             }
@@ -289,7 +312,10 @@ addEventListener("drop", ".drop", (e) => {
 
     const totalCost = document.querySelector(
         `#total-cost[attr-key="${tableKey}"]`
+    const totalCost = document.querySelector(
+        `#total-cost[attr-key="${tableKey}"]`
     );
+    totalCost.innerText = parseInt(totalCost.innerText) + menuObj.cost;
     totalCost.innerText = parseInt(totalCost.innerText) + menuObj.cost;
 });
 
@@ -298,8 +324,12 @@ addEventListener("click", ".drop", (e) => {
     const tableKey = e.target.getAttribute("attr-key");
     const tableArr = tableCardList[tableKey];
     const tablecardcolor = document.querySelector(`.table-card[attr-key="${tableKey}"]`);
+    const tableKey = e.target.getAttribute("attr-key");
+    const tableArr = tableCardList[tableKey];
+    const tablecardcolor = document.querySelector(`.table-card[attr-key="${tableKey}"]`);
 
 
+    if (tableArr.tableItems.length == 0) {
     if (tableArr.tableItems.length == 0) {
         alert("No items in the table");
         return;
@@ -317,10 +347,12 @@ addEventListener("click", ".drop", (e) => {
         </div>
         <div class="table-data-container">
         <div class="table-data" attr-table-key="${tableKey}">
+        <div class="table-data" attr-table-key="${tableKey}">
                 <div class="sno bold">sno</div>
                 <p class="bold"> name</p>
                 <p class="bold">quantity</p>
                 <p id="cost-display" class="bold"> cost</p>
+                <!-- <button class="update-item" attr-table-key="${tableKey}">update</button>
                 <!-- <button class="update-item" attr-table-key="${tableKey}">update</button>
                 <button class="delete-item">delete</button> -->
                 <br>
@@ -336,8 +368,10 @@ addEventListener("click", ".drop", (e) => {
         ;
     let cnt = 1;
     tableArr.tableItems.forEach((item) => {
+    tableArr.tableItems.forEach((item) => {
         const quantity = Math.floor(item.cost / item.individualCost);
         const showTableHtml = `
+        <div class="table-data" attr-table-key="${tableKey}">
         <div class="table-data" attr-table-key="${tableKey}">
                 <div class="sno">${cnt++}</div>
                 <p id="item-name">${item.name}</p>
@@ -345,6 +379,7 @@ addEventListener("click", ".drop", (e) => {
                     <input type="number" value="${quantity}" id="input-quantity" min="1">
                 </label>
                 <p id="cost-display"> ${item.cost}</p>
+                <button class="update-item" attr-table-key="${tableKey}">update</button>
                 <button class="update-item" attr-table-key="${tableKey}">update</button>
                 <img class="delete-item" src="./assests/delete.svg" alt="delete-icon">
                 <br>
@@ -354,6 +389,7 @@ addEventListener("click", ".drop", (e) => {
         container.insertAdjacentHTML('beforeend', showTableHtml);
     });
     const tableHead = document.querySelector(".bill-heading-text");
+    tableHead.innerText = `Table - ${parseInt(tableKey) + 1} | Order details`;
     tableHead.innerText = `Table - ${parseInt(tableKey) + 1} | Order details`;
     dialog.showModal();
     const cancelBtn = dialog.querySelector(".cancel");
@@ -370,7 +406,10 @@ addEventListener("click", ".drop", (e) => {
         e.target.parentElement.parentElement.close();
         const dialog = document.querySelector(".show-bill");
         const billArr = tableArr.tableItems;
+        const billArr = tableArr.tableItems;
         dialog.innerHTML = ``;
+        console.log(billArr);
+        billArr.forEach((item) => {
         console.log(billArr);
         billArr.forEach((item) => {
             const billHtml = `
@@ -381,19 +420,24 @@ addEventListener("click", ".drop", (e) => {
                 <br>
         </div>
         `;
-        dialog.insertAdjacentHTML("afterbegin", billHtml);
+            dialog.insertAdjacentHTML("afterbegin", billHtml);
         });
         const totalCost = document.querySelector(
             `#total-cost[attr-key="${tableKey}"]`
+        const totalCost = document.querySelector(
+            `#total-cost[attr-key="${tableKey}"]`
         );
+        const totalCostHtml = `
         const totalCostHtml = `
         <div class="bill-data">
 
             <h3>Total Cost</h3>
             <p>cost ${totalCost.innerText}</p>
+            <p>cost ${totalCost.innerText}</p>
             <br>
     </div>
     `;
+        dialog.insertAdjacentHTML("afterbegin", totalCostHtml);
         dialog.insertAdjacentHTML("afterbegin", totalCostHtml);
         dialog.insertAdjacentHTML(
             "beforeend",
@@ -404,7 +448,10 @@ addEventListener("click", ".drop", (e) => {
         cancelBtn.addEventListener("click", (e) => {
             e.preventDefault();
             console.log(tableKey);
+            console.log(tableKey);
             dialog.close();
+            tableArr.tableItems = [];
+            totalCost.innerText = "0";
             tableArr.tableItems = [];
             totalCost.innerText = "0";
         });
@@ -420,6 +467,8 @@ addEventListener("click", ".update-item", (e) => {
         e.target.parentElement.querySelector("#input-quantity").value;
     const tableKey = e.target.getAttribute("attr-table-key");
     const tableArr = tableCardList[tableKey];
+    const tableKey = e.target.getAttribute("attr-table-key");
+    const tableArr = tableCardList[tableKey];
     const costDisplay = e.target.parentElement.querySelector("#cost-display");
     console.log(e.target.parentElement);
     const itemName = e.target.parentElement.querySelector("#item-name").innerText;
@@ -427,10 +476,14 @@ addEventListener("click", ".update-item", (e) => {
     const newCost =
         parseInt(inputQuantity) *
         tableArr.tableItems.find((item) => item.name == itemName).individualCost;
+        tableArr.tableItems.find((item) => item.name == itemName).individualCost;
     costDisplay.innerText = `${newCost}`;
     const totalCost = document.querySelector(
         `#total-cost[attr-key="${tableKey}"]`
+    const totalCost = document.querySelector(
+        `#total-cost[attr-key="${tableKey}"]`
     );
+    tableArr.tableItems.forEach((item) => {
     tableArr.tableItems.forEach((item) => {
         if (item.name == itemName) {
             item.cost = newCost;
@@ -439,9 +492,11 @@ addEventListener("click", ".update-item", (e) => {
     let total = 0;
     console.log(tableCardList);
     tableCardList[tableKey].tableItems.forEach((item) => {
+    tableCardList[tableKey].tableItems.forEach((item) => {
         total += item.cost;
     });
 
+    totalCost.innerText = total;
     totalCost.innerText = total;
 });
 
@@ -450,7 +505,11 @@ addEventListener("click", ".delete-item", (e) => {
     e.preventDefault();
     const tableKey = e.target.parentElement.getAttribute("attr-table-key");
     const tableArr = tableCardList[tableKey];
+    const tableKey = e.target.parentElement.getAttribute("attr-table-key");
+    const tableArr = tableCardList[tableKey];
     const itemName = e.target.parentElement.querySelector("#item-name").innerText;
+    const cost = tableArr.tableItems.find((item) => item.name == itemName).cost;
+    tableArr.tableItems = tableArr.tableItems.filter(
     const cost = tableArr.tableItems.find((item) => item.name == itemName).cost;
     tableArr.tableItems = tableArr.tableItems.filter(
         (item) => item.name != itemName
@@ -458,7 +517,12 @@ addEventListener("click", ".delete-item", (e) => {
     e.target.parentElement.remove();
     const totalCost = document.querySelector(
         `#total-cost[attr-key="${tableKey}"]`
+    const totalCost = document.querySelector(
+        `#total-cost[attr-key="${tableKey}"]`
     );
+    totalCost.innerText =
+        parseInt(totalCost.innerText) - cost > 0
+            ? parseInt(totalCost.innerText) - cost
     totalCost.innerText =
         parseInt(totalCost.innerText) - cost > 0
             ? parseInt(totalCost.innerText) - cost
