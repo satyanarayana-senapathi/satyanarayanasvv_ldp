@@ -2,44 +2,43 @@
     font-family: 'GraphikRegular';
     src: url(../../../fonts/GraphikRegular.otf);
 }
-.heading{
+#heading{
     padding-left: 6px;
-    font-size: 18px!important;
-    font-weight: bold!important;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 22px;
     letter-spacing: 0.01em;
     text-align: left;
     color: #343446; 
-    font-family: 'GraphikRegular' !important;
+    font-family: GraphikRegular,sans-serif,Helvetica;
     font-style: normal;
 
 }
-.bitcn{
-    padding-top: 10px!important;
-    padding-left: 1px!important;
-    font-size: 13px!important;
-    font-weight: bold!important;
+#bitcn{
+    padding-top: 10px;
+    padding-left: 1px;
+    font-size: 13px;
+    font-weight: bold;
     line-height: 16px;
     letter-spacing: 0.01em;
-    font-family: 'GraphikRegular' !important;
+    font-family: GraphikRegular,sans-serif,Helvetica;
     font-style: normal;
     color: #343446;
     flex: none;
     order: 1;
     flex-grow: 0;
 }
-.rightBill{
+#rightBill{
     padding-left: 26rem;
-    padding-top: 8px!important;
+    padding-top: 8px;
     left: 498px;
     top: 18px;
     border-radius: nullpx;
-    font-size: 18px!important;
-    font-weight: bold!important;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 28px;
     letter-spacing: 0;
-    font-family: 'GraphikRegular' !important;
-    font-weight: 500;
+    font-family: GraphikRegular,sans-serif,Helvetica;
     color: #343446;
     flex: none;
     order: 1;

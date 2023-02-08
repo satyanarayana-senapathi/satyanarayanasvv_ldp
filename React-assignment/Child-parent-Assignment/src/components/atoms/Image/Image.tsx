@@ -1,6 +1,6 @@
 interface Bitprops{
   src:string;
-  alt?:string | undefined;
+  alt:string;
   width?: string;
   height?:string;
 }

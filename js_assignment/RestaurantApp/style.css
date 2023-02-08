@@ -299,10 +299,6 @@ button[type="submit"]:hover {
   pointer-events: none;
   transition: opacity 150ms ease-in-out;
 }
-.show-delete {
-  background-color: #f35a5a;
-}
-
 
 .delete:hover .show-delete {
   opacity: 1;
@@ -323,9 +319,6 @@ button[type="submit"]:hover {
   margin-bottom: 1rem;
   background-color: #3d4eae;
   color: white;
-}
-.k {
-  padding-top: 7rem;
 }
 
 .bill-heading-text {
@@ -368,9 +361,7 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: flex-end;
 }
-.table-card {
-  cursor: pointer;
-}
+
 @media screen and (max-width: 620px) {
   .container {
     grid-template-columns: 1fr;

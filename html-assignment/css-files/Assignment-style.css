@@ -6,7 +6,9 @@
     box-sizing: border-box;
 }
 body{
-    font-family: montserrat;
+    background: rgba(186,212,255,0.5);
+    min-height: 100vh;
+
 }
 nav{
     background: blue;
@@ -49,11 +51,7 @@ section{
     
 
 }
-body{
-    background: rgba(186,212,255,0.5);
-    min-height: 100vh;
 
-}
 img{
     width: 200px;
     height: 200px;
@@ -81,7 +79,6 @@ img{
     width:30%;
 }
 .color{
-    background-color: antiquewhite;
     background: url(../image/track.jpg) no-repeat;
     background-size: cover;
     height: 100vh;
