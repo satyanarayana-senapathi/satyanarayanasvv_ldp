@@ -1,15 +1,24 @@
 import { Button } from "@mui/material";
 
-export const Buttons = ({ ...props }) => {
+interface BtnProps {
+  btnId?: string;
+  btnVariant?: "text" | "outlined" | "contained";
+  onClick?: () => void;
+  btnSize?: "small" | "medium" | "large";
+  btnColor?: string;
+  btnContent?: string;
+}
+export const Buttons = ({ ...props }: BtnProps) => {
+  const { btnId, btnVariant, onClick, btnSize, btnColor, btnContent } = props;
   return (
     <Button
-      id={props.btnId}
-      variant={props.btnVariant}
-      onClick={props.onClick}
-      size={props.btnize}
-      sx={{ color: `${props.btnColor}` }}
+      id={btnId}
+      variant={btnVariant}
+      onClick={onClick}
+      size={btnSize}
+      sx={{ color: `${btnColor}` }}
     >
-      {props.btnContent}
+      {btnContent}
     </Button>
   );
 };

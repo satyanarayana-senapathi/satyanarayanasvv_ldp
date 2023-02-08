@@ -6,31 +6,10 @@ import { Amount } from "../molecules/Amount";
 import "./AmountCard.css";
 
 type cardProps = {
-  boxId?: string;
-  btnId?: string;
   sliderId?: string;
-  typoId?: string;
-  btnVariant?: "text" | "outlined" | "contained" | undefined;
-  btnSize?: "small" | "medium" | "large" | undefined;
-  btnContent?: string;
   orientation?: "vertical" | "horizontal";
-  value?: number | number[] | undefined | string;
+  value?: number | number[] | string;
   valueDisplay?: "auto" | "on" | "off";
-  typoContent?: string | number;
-  typoVariant?:
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "inherit"
-    | "subtitle1"
-    | "subtitle2"
-    | "body1"
-    | "body2"
-    | "overline"
-    | undefined;
   handleChange?: () => void;
 };
 
@@ -38,7 +17,7 @@ export const AmountCard: FC<cardProps> = () => {
   const [value, setValue] = useState<number | string>(0);
   const [btcValue, setBtcValue] = useState<number>(0);
 
-  const handleChange = (event: Event, newValue: number) => {
+  const handleChange = (newValue: number) => {
     const calculate = newValue * 3497866.84;
     const amount = calculate.toLocaleString();
     setValue(amount);

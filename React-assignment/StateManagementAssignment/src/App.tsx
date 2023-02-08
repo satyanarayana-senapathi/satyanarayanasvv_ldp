@@ -1,11 +1,7 @@
-import { AmountCard } from "./components/organsim/AmountCard";
+import { AmountCard } from "./components/organism/AmountCard";
 
 function App() {
-  return (
-    <div>
-      <AmountCard />
-    </div>
-  );
+  return <AmountCard />;
 }
 
 export default App;
