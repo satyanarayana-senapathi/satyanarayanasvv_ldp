@@ -23,7 +23,7 @@ name: Build
 on:
   push:
     branches:
-      - React
+      - master
   pull_request:
     types: [opened, synchronize, reopened, closed]
 jobs:
@@ -33,7 +33,7 @@ jobs:
     timeout-minutes: 30
     defaults:
       run:
-        working-directory: ./React-assignment/StateManagementAssignment
+        working-directory: ./master/
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,7 +44,7 @@ jobs:
         run: npm test src/
       - name: SonarCloud Scan
         with:
-          projectBaseDir: ./React-assignment/StateManagementAssignment
+          projectBaseDir: ./master/
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
