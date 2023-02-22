@@ -24,7 +24,7 @@
     }
     
     h2{
-      font-family:graphik;
+      font-family:graphik,sans-serif;
       text-align: center;
       font-size: 4rem;
       font-weight: bold;
@@ -33,13 +33,13 @@
     }
     
     h5{
-      font-family:graphik;
+      font-family:graphik,sans-serif;
       text-align: center;
       color:black;
       font-size: 1rem;
     }
     p{
-      font-family:graphik;
+      font-family:graphik,sans-serif;
       text-align: center;
       font-size: 2rem;
       font-weight: 800;
