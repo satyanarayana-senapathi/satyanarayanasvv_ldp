@@ -18,9 +18,8 @@ const ApiProject = () => {
     store();
   }, []);
   const store = async () => {
-    const response = await axios.get("http://localhost:7007/source");
-    const dataJson = await response.data;
-    setList(dataJson);
+    const {data} = await axios.get("http://localhost:7007/source")
+    setList(data);
   };
   return (
     <>   
