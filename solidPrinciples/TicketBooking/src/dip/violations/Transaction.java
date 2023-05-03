@@ -1,21 +1,20 @@
-package dip.corrections;
+package dip.violations;
+
 
 public class Transaction {
-    private Card card;
-    public Transaction(Card card){
-        this.card=card;
+    private CreditCard creditCard;
+    public Transaction(CreditCard creditCard){
+        this.creditCard=creditCard;
 
     }
     public void doPurchase(long amount){
-        card.doTransaction(amount);
+        creditCard.doTransaction(amount);
 
     }
     public static void main(String[] args){
         DebitCard debitCard=new DebitCard();
         CreditCard creditCard=new CreditCard();
-        Card card=new DebitCard();
-        Transaction transaction=new Transaction(card);
+        Transaction transaction=new Transaction(creditCard);
         transaction.doPurchase(5000);
     }
 }
-
